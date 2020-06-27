@@ -1,10 +1,8 @@
-package GameObject;
+package GameObject;//gameworld sınıfının aynısıdır, parctice bölümü için yazılmıştır
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 import java.util.Random;
-
 import Controller.Controller;
 import ImageLoader.ImageLoader;
 
@@ -15,19 +13,14 @@ public class PracticeWorld implements GameObject {
     int x,yKord=-220;
     Random rastgele = new Random();
     int sayi;
-
-
-
-    public PracticeWorld(){
+public PracticeWorld(){
         controller=new Controller(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()*4/5,75);
         player =new Player(Gdx.graphics.getWidth()/2-50,Gdx.graphics.getHeight()/2,100,100,controller);
 initPoints();
     }
     public void render(SpriteBatch sb) {
-
         player.render(sb);
         point.render(sb);
-
     }
     public void update(float delta) {
         player.update(delta);
@@ -35,9 +28,7 @@ initPoints();
         point.update(delta);
     }
     public void random(){
-
         sayi = rastgele.nextInt(5);
-
             if(sayi==1){
                 x=660;
             }
@@ -53,20 +44,13 @@ initPoints();
             if(sayi==5){
                 x=0;
             }
-
-
-
-
-
     }
     public void initPoints(){
         random();
         ImageLoader.changePoint(rastgele.nextInt(5));
         point=new Point(x,yKord);
     }
-
     public Player getPlayer(){return player;}
     public Controller getController(){return controller;}
     public Point getPoint(){return point;}
-
 }
