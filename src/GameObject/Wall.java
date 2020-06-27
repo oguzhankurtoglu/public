@@ -13,11 +13,10 @@ public class Wall implements GameObject {
     private Vector2 speed;
     private Rectangle collisionRect,collision2Rect,collision3Rect,collision4Rect,collision5Rect;
 
-
     public Wall(float x2Kord, float y2Kord ,float x4Kord,float y4Kord,float xKord,float yKord,float x5Kord,
-                float y5Kord,float x3Kord,float y3Kord)
+                float y5Kord,float x3Kord,float y3Kord)//her duvar için koordinatlar parametre olarak alınır
     {
-        position=new Vector2();
+        position=new Vector2();//her duvarın koordinatları için vektör atanır
         position2=new Vector2();
         position3=new Vector2();
         position4=new Vector2();
@@ -29,13 +28,13 @@ public class Wall implements GameObject {
         size5=new Vector2(220,220);
         speed=new Vector2(0,400);
 
-        collisionRect=new Rectangle(position.x,position.y,size.x,size.y);
+        collisionRect=new Rectangle(position.x,position.y,size.x,size.y);//her duvarlar için sınırlar belirlenir
         collision2Rect=new Rectangle(position2.x,position2.y,size2.x,size2.y);
         collision3Rect=new Rectangle(position3.x,position3.y,size3.x,size3.y);
         collision4Rect=new Rectangle(position4.x,position4.y,size4.x,size4.y);
         collision5Rect=new Rectangle(position5.x,position5.y,size5.x,size5.y);
 
-        position.x=xKord;
+        position.x=xKord;//koordinatlar gelen parametrelere eşitlenir
         position.y=yKord;
         position2.x=x2Kord;
         position2.y=y2Kord;
@@ -46,8 +45,7 @@ public class Wall implements GameObject {
         position5.x=x5Kord;
         position5.y=y5Kord;
     }
-
-    public void render(SpriteBatch sb) {
+    public void render(SpriteBatch sb) {//her duvar boyutlarına koordinatlarına ve görüntülerine göre çizdirilir
         sb.begin();
         sb.draw(ImageLoader.wallTexture,position.x,position.y,size.x,size.y);
         sb.draw(ImageLoader.wall2Texture,position2.x,position2.y,size2.x,size2.y);
@@ -56,7 +54,7 @@ public class Wall implements GameObject {
         sb.draw(ImageLoader.wall5texture,position5.x,position5.y,size5.x,size5.y);
         sb.end();
     }
-    public void update(float delta) {
+    public void update(float delta) {//oyun akışına göre duvarların sınırları güncellenir, duvarların hızı eklenir
         collisionRect.x=position.x;
         collisionRect.y=position.y;
         collisionRect.width=size.x;
@@ -88,25 +86,18 @@ public class Wall implements GameObject {
         position4.add(speed.cpy().scl(delta));
         position5.add(speed.cpy().scl(delta));
 
-        if(PlayState.getSayac()>1000){
+        if(PlayState.getSayac()>1000){//oyundaki skora göre duvarın gelme hızını arttıran koşullar
             speed=new Vector2(0,1000);
         }else if(PlayState.getSayac()>750){
             speed=new Vector2(0,750);
 
         }else if(PlayState.getSayac()>400){
             speed=new Vector2(0,600);
-
         }
         else if(PlayState.getSayac()>150){
             speed=new Vector2(0,500);
-
         }
-
-
     }
-
-
-
     public Rectangle getCollisionRect() {
         return collisionRect;
     }
