@@ -3,11 +3,9 @@ package Buttons;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
-
 import GameObject.GameObject;
 
 public class Button2 implements GameObject {
-
     private Rectangle buttonRect;
     private TextureRegion buttonImages;
     private float xKord,yKord,width,height;
@@ -19,24 +17,17 @@ public Button2(float xKord, float yKord, TextureRegion buttonImages){
         width=450;
         height=200;
         buttonRect=new Rectangle(xKord,yKord,width,height);
-
 }
-
 public void render(SpriteBatch sb) {
         sb.begin();
         sb.draw(buttonImages,xKord,yKord,width,height);
         sb.end();
     }
-
-
     public void update(float delta) {
-
     }
-
     public Rectangle getButtonRect() {
         return buttonRect;
     }
-
     public void setButtonRect(Rectangle buttonRect) {
         this.buttonRect = buttonRect;
     }
