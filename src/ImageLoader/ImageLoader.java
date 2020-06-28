@@ -1,11 +1,10 @@
-package ImageLoader;
+package ImageLoader;//oyun içerisndeki görsellerin eklendiği sınıf
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class ImageLoader {
-
     public static Texture text,playerTexture,pointTex,wallTexture,wall2Texture,wall3Texture,wall4Texture,
             wall5texture,MenuBg,button,button2,backButton,icon,icon2,icon3,icon4,icon5;
     public static TextureRegion textReg,MenuBgReg,iconReg,icon2Reg,icon3Reg,icon4Reg,icon5Reg;
@@ -14,7 +13,6 @@ public class ImageLoader {
     public static Texture fontTexture;
 
         public static void load(){
-
             font=new BitmapFont(Gdx.files.internal("font.fnt"),true);
             font.getData().setScale(3);
             fontTexture=new Texture(Gdx.files.internal("font.png"));
@@ -23,8 +21,7 @@ public class ImageLoader {
             MenuBg=new Texture(Gdx.files.internal("colorful.jpg"));
             MenuBgReg=new TextureRegion(MenuBg,0,0,328,302);
             MenuBgReg.flip(false,true);
-
-
+            
             icon=new Texture(Gdx.files.internal("1s.png"));
             icon2=new Texture(Gdx.files.internal("2s.png"));
             icon3=new Texture(Gdx.files.internal("3s.png"));
@@ -33,7 +30,6 @@ public class ImageLoader {
 
             iconReg=new TextureRegion(icon,0,0,250,250);
             iconReg.flip(false,true);
-
 
             icon2Reg=new TextureRegion(icon2,0,0,250,250);
             icon2Reg.flip(false,true);
@@ -46,7 +42,6 @@ public class ImageLoader {
 
             icon5Reg=new TextureRegion(icon5,0,0,250,250);
             icon5Reg.flip(false,true);
-
 
             wallTexture=new Texture(Gdx.files.internal("1.jpg"));
             wall2Texture=new Texture(Gdx.files.internal("2.jpg"));
@@ -88,7 +83,6 @@ public class ImageLoader {
             backButton=new Texture(Gdx.files.internal("back.png"));
             backButtonRegion=new TextureRegion(backButton,0,0,330,175);
             backButtonRegion.flip(false,true);
-
         }
         public static void changePoint(int i){
             if(i==0){
@@ -107,10 +101,8 @@ public class ImageLoader {
                 pointTex=wallTexture;
             }
         }
-
-
-        public static void change(int i){
-
+    
+        public static void change(int i){//gelen parametreye göre playerin renklerini değiştiren fonksiyon
             if (i==0){
                 text =wall3Texture;
                 textReg=new TextureRegion(text,0,0,50,50);
@@ -137,14 +129,11 @@ public class ImageLoader {
                 playerRegion=new TextureRegion(text,0,0,50,50);
             }
         }
-
-        public static void dispose(){
+        public static void dispose(){//oyunun yok edildiği libgdx methodu
             font.dispose();
             fontTexture.dispose();
             text.dispose();
             playerTexture.dispose();
             wallTexture.dispose();
-
         }
-
 }
